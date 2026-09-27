@@ -43,6 +43,33 @@ button:active{transform:scale(.95)}
   background:linear-gradient(135deg,#ffd6e3,#fff);
   display:block; box-shadow:0 14px 35px rgba(130,45,75,.16);
 }
+.gallery{
+  display:flex;
+  overflow-x:auto;
+  scroll-snap-type:x mandatory;
+  gap:12px;
+  border-radius:24px;
+  scrollbar-width:none;
+}
+
+.gallery::-webkit-scrollbar{
+  display:none;
+}
+
+.gallery-photo{
+  width:100%;
+  flex:0 0 100%;
+  aspect-ratio:4/5;
+  object-fit:cover;
+  border-radius:20px;
+  scroll-snap-align:center;
+}
+
+.dots{
+  margin-top:12px;
+  font-size:18px;
+  letter-spacing:8px;
+}
 .photo-wrap{padding:10px;background:white;border-radius:28px;transform:rotate(-1.5deg);margin:20px auto;max-width:390px}
 .gift{
   margin:20px auto; width:150px; height:120px; position:relative; cursor:pointer;
@@ -109,9 +136,18 @@ Tell Kritika what happened, what you regret, and what you want her to know.</div
 <div class="page section" id="photo">
   <div class="card">
     <h2>One of my favourite things…</h2>
-    <div class="photo-wrap">
-      <img class="photo" src="your-photo.jpg" alt="Our photo" onerror="this.style.display='none';this.parentElement.innerHTML='<div style=&quot;padding:80px 15px;font-family:system-ui&quot;>📸<br><br>Add your photo as <b>your-photo.jpg</b><br>in this folder.</div>'">
-    </div>
+  <div class="photo-wrap">
+  <div class="gallery">
+    <img class="gallery-photo" src="your-photo.jpg" alt="Our photo">
+    <img class="gallery-photo" src="your-photo1.jpg" alt="Our photo">
+    <img class="gallery-photo" src="your-photo2.jpg" alt="Our photo">
+  </div>
+  <div class="dots">
+    <span>❤️</span>
+    <span>💗</span>
+    <span>💕</span>
+  </div>
+      </div>
     <p>Some moments are too precious to let one mistake define everything.</p>
     <button onclick="next('gift')">I have one more thing 🎁</button>
   </div>
