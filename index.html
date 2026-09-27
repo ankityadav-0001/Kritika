@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="theme-color" content="#ffb6c9">
+<title>For Kritika ❤️</title>
+<style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; font-family:Georgia,"Times New Roman",serif; color:#5a2637;
+  background:linear-gradient(160deg,#fff5f8,#ffe0ea 45%,#fff8fb);
+  overflow-x:hidden;
+}
+.page{min-height:100vh; display:flex; align-items:center; justify-content:center; padding:24px 16px; position:relative}
+.card{
+  width:min(94vw,560px); padding:30px 22px; border-radius:30px;
+  background:rgba(255,255,255,.76); backdrop-filter:blur(12px);
+  box-shadow:0 20px 60px rgba(120,35,70,.15); text-align:center;
+  border:1px solid rgba(255,255,255,.9); position:relative; z-index:2;
+}
+h1{font-size:clamp(2.2rem,10vw,4.2rem); margin:8px 0 8px; color:#d93668}
+h2{font-size:clamp(1.65rem,7vw,2.5rem); margin:8px 0 14px}
+p{font-family:system-ui,-apple-system,sans-serif; line-height:1.7; font-size:1.03rem}
+.small{opacity:.72;font-size:.9rem}
+button{
+  border:0; border-radius:999px; padding:14px 22px; margin:10px 5px;
+  font-weight:700; font-size:1rem; cursor:pointer; color:white;
+  background:linear-gradient(135deg,#ef4777,#c92e62);
+  box-shadow:0 10px 25px rgba(201,46,98,.25);
+  transition:.2s transform;
+}
+button:active{transform:scale(.95)}
+.secondary{background:#fff;color:#c92e62;border:1px solid #f2a8bd}
+.section{display:none}
+.section.show{display:block;animation:rise .7s ease both}
+@keyframes rise{from{opacity:0;transform:translateY(25px)}to{opacity:1;transform:none}}
+.heart{position:fixed;pointer-events:none;z-index:5;animation:float 5s linear forwards;bottom:-40px}
+@keyframes float{to{transform:translateY(-115vh) rotate(25deg);opacity:0}}
+.photo{
+  width:100%; aspect-ratio:4/5; object-fit:cover; border-radius:24px;
+  background:linear-gradient(135deg,#ffd6e3,#fff);
+  display:block; box-shadow:0 14px 35px rgba(130,45,75,.16);
+}
+.photo-wrap{padding:10px;background:white;border-radius:28px;transform:rotate(-1.5deg);margin:20px auto;max-width:390px}
+.gift{
+  margin:20px auto; width:150px; height:120px; position:relative; cursor:pointer;
+  animation:bob 1.7s ease-in-out infinite;
+}
+@keyframes bob{50%{transform:translateY(-7px)}}
+.box{position:absolute;bottom:0;left:10px;width:130px;height:85px;background:#f35b82;border-radius:8px}
+.lid{position:absolute;left:3px;top:24px;width:144px;height:30px;background:#d93668;border-radius:8px;z-index:2}
+.ribbon-v{position:absolute;left:64px;top:20px;width:20px;height:95px;background:#ffd25c;z-index:3}
+.ribbon-h{position:absolute;left:8px;top:52px;width:134px;height:18px;background:#ffd25c;z-index:3}
+.bow{position:absolute;top:0;left:52px;font-size:38px;z-index:4}
+.hint{font-family:system-ui,sans-serif;color:#b72e5c;font-weight:700}
+.apology{
+  min-height:190px; text-align:left; white-space:pre-wrap;
+  background:#fff8fa;border:1px dashed #e89bb2;border-radius:20px;padding:18px;
+  font-family:system-ui,sans-serif; line-height:1.7;
+}
+.edit-note{font-size:.78rem;opacity:.65;font-family:system-ui}
+.footer{padding:30px 10px 70px;text-align:center;font-family:system-ui}
+#final{font-size:1.15rem}
+.confetti{position:fixed;top:-20px;z-index:20;pointer-events:none;animation:fall 3s linear forwards}
+@keyframes fall{to{transform:translateY(110vh) rotate(720deg)}}
+</style>
+</head>
+<body>
+
+<div class="page" id="home">
+  <div class="card">
+    <div style="font-size:3rem">🥺💗</div>
+    <p class="small">A little something made especially for</p>
+    <h1>Kritika</h1>
+    <p>There are some things I want to say…<br>and I wanted to say them differently.</p>
+    <button onclick="openStory()">Open this ❤️</button>
+  </div>
+</div>
+
+<div class="page section" id="story">
+  <div class="card">
+    <div style="font-size:2.5rem">💌</div>
+    <h2>Kritika…</h2>
+    <p>
+      Before anything else, I just want you to know that
+      <b>you matter to me.</b> A lot.
+    </p>
+    <p>So please give me a tiny moment to say what I couldn't say properly.</p>
+    <button onclick="next('apology')">I'm listening 🥺</button>
+  </div>
+</div>
+
+<div class="page section" id="apology">
+  <div class="card">
+    <div style="font-size:2.4rem">🥹</div>
+    <h2>I'm sorry, Kritika.</h2>
+    <div class="apology" id="apologyText">WRITE YOUR APOLOGY HERE.
+
+Replace this text with your own words. You don't need perfect words — just write honestly.
+
+Tell Kritika what happened, what you regret, and what you want her to know.</div>
+    <p class="edit-note">You can edit the apology directly inside index.html.</p>
+    <button onclick="next('photo')">There's more… ❤️</button>
+  </div>
+</div>
+
+<div class="page section" id="photo">
+  <div class="card">
+    <h2>One of my favourite things…</h2>
+    <div class="photo-wrap">
+      <img class="photo" src="your-photo.jpg" alt="Our photo" onerror="this.style.display='none';this.parentElement.innerHTML='<div style=&quot;padding:80px 15px;font-family:system-ui&quot;>📸<br><br>Add your photo as <b>your-photo.jpg</b><br>in this folder.</div>'">
+    </div>
+    <p>Some moments are too precious to let one mistake define everything.</p>
+    <button onclick="next('gift')">I have one more thing 🎁</button>
+  </div>
+</div>
+
+<div class="page section" id="gift">
+  <div class="card">
+    <h2>A tiny gift for you 🎁</h2>
+    <div class="gift" onclick="openGift()" aria-label="Open gift">
+      <div class="bow">🎀</div><div class="lid"></div><div class="box"></div>
+      <div class="ribbon-v"></div><div class="ribbon-h"></div>
+    </div>
+    <div id="giftMessage" style="display:none" class="section show">
+      <p style="font-size:1.2rem">🎁 → 💗</p>
+      <p><b>My gift is simple:</b><br>an honest apology, a promise to do better, and a whole lot of love.</p>
+      <p>And yes… this little website is also me being ridiculously cheesy for you. 🥹</p>
+      <button onclick="next('final')">One last thing…</button>
+    </div>
+    <p class="hint" id="giftHint">Tap the gift 🥺</p>
+  </div>
+</div>
+
+<div class="page section" id="final">
+  <div class="card">
+    <div style="font-size:3.3rem">💗✨🥺✨💗</div>
+    <h2>Kritika,</h2>
+    <p>
+      I can't change the moment that hurt you.<br>
+      But I can be honest about it, learn from it,
+      and show you that I'm sorry.
+    </p>
+    <p style="font-size:1.35rem"><b>Will you forgive me? 🥺❤️</b></p>
+    <button onclick="forgive()">Maybe… ❤️</button>
+    <button class="secondary" onclick="moreHearts()">I need time 🥺</button>
+    <div id="finalMessage" style="margin-top:18px;font-family:system-ui;font-weight:600"></div>
+    <div class="footer">Made with too much love by<br><b>Yadav Ji ❤️</b></div>
+  </div>
+</div>
+
+<script>
+function next(id){
+  document.querySelectorAll('.section').forEach(x=>x.classList.remove('show'));
+  const el=document.getElementById(id);
+  el.classList.add('show');
+  setTimeout(()=>el.scrollIntoView({behavior:'smooth',block:'center'}),40);
+  hearts(8);
+}
+function openStory(){next('story'); hearts(14)}
+function openGift(){
+  document.getElementById('giftHint').style.display='none';
+  document.getElementById('giftMessage').style.display='block';
+  hearts(25); confetti();
+}
+function forgive(){
+  document.getElementById('finalMessage').innerHTML='🥹💗 Thank you for hearing me out. I promise I will try to make my actions speak louder than this website.';
+  hearts(35); confetti();
+}
+function moreHearts(){
+  document.getElementById('finalMessage').innerHTML='Take your time. ❤️ I mean that. I just wanted you to know that I am genuinely sorry.';
+  hearts(18);
+}
+function hearts(n=10){
+  const icons=['❤️','💗','💕','💖','🥺','✨','💞','🌸'];
+  for(let i=0;i<n;i++){
+    const e=document.createElement('div'); e.className='heart';
+    e.textContent=icons[Math.floor(Math.random()*icons.length)];
+    e.style.left=Math.random()*100+'vw';
+    e.style.fontSize=(18+Math.random()*25)+'px';
+    e.style.animationDuration=(3+Math.random()*3)+'s';
+    document.body.appendChild(e);
+    setTimeout(()=>e.remove(),6500);
+  }
+}
+function confetti(){
+  const icons=['💗','✨','💕','🌸','❤️','🎀'];
+  for(let i=0;i<45;i++){
+    const e=document.createElement('div'); e.className='confetti';
+    e.textContent=icons[Math.floor(Math.random()*icons.length)];
+    e.style.left=Math.random()*100+'vw';
+    e.style.fontSize=(12+Math.random()*20)+'px';
+    e.style.animationDuration=(2+Math.random()*2)+'s';
+    document.body.appendChild(e);
+    setTimeout(()=>e.remove(),4500);
+  }
+}
+setInterval(()=>hearts(2),1800);
+</script>
+</body>
+</html>
